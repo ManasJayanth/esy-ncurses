@@ -32,7 +32,7 @@ new_section "Packaging for NPM"
 node scripts/package.js 
 new_section "Publishing to local NPM"
 cd _esy-package/gnuplot-5.4.3
-yarn publish --registry $REGISTRY_URL --new-version 5.4.3000 --use-yarnrc ../../.ci/yarnrc
+npm publish --registry $REGISTRY_URL
 # See https://github.com/verdaccio/verdaccio/issues/212#issuecomment-308578500
 # why yarn instead of npm.
 
