@@ -34,7 +34,6 @@ new_section "Publishing to local NPM"
 cd _esy-package/gnuplot-5.4.3
 npm publish --registry $REGISTRY_URL
 # See https://github.com/verdaccio/verdaccio/issues/212#issuecomment-308578500
-# why yarn instead of npm.
 
 cd ../../esy-test/
 export ESY__PREFIX=$HOME/_esy_test/prefix
