@@ -1,21 +1,22 @@
 {
-  "//": "Keys that start with // are ignored",
-  "name": "esy-hello",
-  "version": "0.0.1000",
-  "// version": "See readme and docs on how to version packages",
-  "description": "hello packaged for esy",
-  "source": "https://github.com/esy/test-hello-c/archive/0.1.0.zip#sha256:e1bd9924eb5d97d99c9b87f9a4a95b734e111cd6dd01464358029c751d57d693",
+  "name": "esy-ncurses",
+  "version": "6.3.0",
+  "description": "ncurses packaged for esy",
+  "source": "https://ftp.gnu.org/gnu/ncurses/ncurses-6.3.tar.gz#sha256:97fc51ac2b085d4cde31ef4d2c3122c21abc217e9090a43a30fc5ec21684e059",
   "override": {
-    "buildEnv": {
-      "//": "Only for illustrative purpose. Not a real, useful package",
-      "PREFIX": "$cur__install",
-      "CC_PREFIX": "#{os == 'windows' ? 'x86_64-w64-mingw32-': '' }"
-    },
-    "build": ["./configure", "make"],
+    "build": [
+      "bash -c 'patch -p1 --ignore-whitespace < winpatch.patch'",
+      [
+        "./configure",
+        "--prefix=#{self.install}",
+        "#{os == 'windows' ? '--host=x86_64-w64-mingw32': ''}",
+        "--enable-term-driver"
+      ],
+      "make"
+    ],
     "install": "make install",
     "buildsInSource": true,
     "exportedEnv": {
-      "//": "This is just an example",
       "PKG_CONFIG_PATH": {
         "val": "#{self.lib / 'pkgconfig'}",
         "scope": "global"

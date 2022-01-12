@@ -31,7 +31,7 @@ fi
 new_section "Packaging for NPM"
 node scripts/package.js 
 new_section "Publishing to local NPM"
-cd _esy-package/gnuplot-5.4.3
+cd _esy-package/ncurses-6.3
 npm publish --registry $REGISTRY_URL
 # See https://github.com/verdaccio/verdaccio/issues/212#issuecomment-308578500
 
@@ -40,7 +40,7 @@ export ESY__PREFIX=$HOME/_esy_test/prefix
 rm -rf $ESY__PREFIX
 mkdir -p $ESY__PREFIX
 esy i --npm-registry $REGISTRY_URL
-esy b
+esy b # uild-shell -p esy-ncurses
 rm -rf esy.lock
 cd ../
 
