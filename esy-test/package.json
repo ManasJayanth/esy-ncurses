@@ -1,6 +1,10 @@
 {
   "esy": {
-    "build": "true"
+    "buildsInSource": true,
+    "build": [
+      "#{os == 'windows' ? 'x86_64-w64-mingw32-':''}gcc test.c -I#{esy-ncurses.install / 'include'} -L#{esy-ncurses.lib} -lncurses -o test",
+      "./test"
+    ]
   },
   "dependencies": {
     "esy-ncurses": "*"
