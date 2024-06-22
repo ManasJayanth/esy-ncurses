@@ -6,6 +6,6 @@
     ]
   },
   "dependencies": {
-    "esy-ncurses": "6.3.1"
+    "esy-ncurses": "6.3.2"
   }
 }
