@@ -2,8 +2,7 @@
   "esy": {
     "buildsInSource": true,
     "build": [
-      "#{os == 'windows' ? 'x86_64-w64-mingw32-':''}gcc test.c -I#{esy-ncurses.install / 'include'} -L#{esy-ncurses.lib} -lncurses -o test",
-      "./test"
+      "#{os == 'windows' ? 'x86_64-w64-mingw32-':''}gcc test.c -I#{ os == 'windows' ? (esy-ncurses.install / 'include/ncurses') : (esy-ncurses.install / 'include')} -L#{esy-ncurses.lib} -lncurses -DNCURSES_STATIC -o test"
     ]
   },
   "dependencies": {
