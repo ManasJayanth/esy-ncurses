@@ -16,7 +16,7 @@
         "#{os == 'windows' ? '--host=x86_64-w64-mingw32': ''}",
         "--enable-term-driver"
       ],
-      "make"
+      "make -j#{self.jobs}"
     ],
     "install": "make install",
     "buildsInSource": true,
